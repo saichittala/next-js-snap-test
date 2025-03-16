@@ -10,6 +10,8 @@ interface ProcessedFile {
   size: number;
 }
 
+
+
 function CompressImages() {
   const [files, setFiles] = useState<File[]>([]);
   const [processedFiles, setProcessedFiles] = useState<ProcessedFile[]>([]);
@@ -31,6 +33,8 @@ function CompressImages() {
       setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     }
   }, []);
+
+
 
   // Helper function to format file size
   const formatFileSize = (size: number): string => {
@@ -87,41 +91,41 @@ function CompressImages() {
   }, []);
 
   // Process all images
-  const processImages = useCallback(async () => {
-    if (!files || files.length === 0) {
-      alert('No files selected. Please upload images first.');
-      return;
+const processImages = useCallback(async () => {
+  if (!files || files.length === 0) {
+    alert('No files selected. Please upload images first.');
+    return;
+  }
+
+  setIsProcessing(true);
+  setProgress(0);
+
+  const totalFiles = files.length;
+  let processedCount = 0;
+  const newProcessedFiles: ProcessedFile[] = [];
+
+  for (const file of files) { // Changed 'let' to 'const' here
+    try {
+      const compressedBlob = await compressImage(file, quality, isLossless);
+      newProcessedFiles.push(compressedBlob);
+    } catch (error) {
+      console.error(`Error processing file ${file.name}:`, error);
     }
 
-    setIsProcessing(true);
-    setProgress(0);
+    processedCount++;
+    setProgress(Math.floor((processedCount / totalFiles) * 100));
+  }
 
-    const totalFiles = files.length;
-    let processedCount = 0;
-    const newProcessedFiles: ProcessedFile[] = [];
+  setProcessedFiles(newProcessedFiles);
+  setIsProcessing(false);
+  setIsProcessed(newProcessedFiles.length > 0);
 
-    for (let file of files) {
-      try {
-        const compressedBlob = await compressImage(file, quality, isLossless);
-        newProcessedFiles.push(compressedBlob);
-      } catch (error) {
-        console.error(`Error processing file ${file.name}:`, error);
-      }
-
-      processedCount++;
-      setProgress(Math.floor((processedCount / totalFiles) * 100));
-    }
-
-    setProcessedFiles(newProcessedFiles);
-    setIsProcessing(false);
-    setIsProcessed(newProcessedFiles.length > 0);
-
-    if (newProcessedFiles.length > 0) {
-      // alert('Compression complete! You can now download the files.');
-    } else {
-      alert('No valid images were processed.');
-    }
-  }, [files, quality, isLossless, compressImage]);
+  if (newProcessedFiles.length > 0) {
+    // alert('Compression complete! You can now download the files.');
+  } else {
+    alert('No valid images were processed.');
+  }
+}, [files, quality, isLossless, compressImage]);
 
   // Download processed files
   const downloadProcessedFiles = useCallback(async () => {

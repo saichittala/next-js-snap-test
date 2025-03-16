@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import OptionsGrid from "./components/card-grid"; // Use absolute import for clarity
-import Link from "next/link";
 import "./globals.css"; // Ensure styles are imported
 
 
