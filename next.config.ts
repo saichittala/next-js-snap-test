@@ -5,3 +5,6 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+
+// "homepage": "https://saichittala.github.io/next-js-snap-test/",
