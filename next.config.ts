@@ -1,9 +1,9 @@
 import { NextConfig } from 'next';
 
-const isProd = process.env.NODE_ENV === 'production';
+// const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
-  basePath: isProd ? '/next-js-snap-test' : '',
+  // basePath: isProd ? '/next-js-snap-test' : '',
   output: 'export', // This replaces 'next export'
   distDir: 'dist',
   images: {
@@ -14,4 +14,3 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
 
-// "homepage": "https://saichittala.github.io/next-js-snap-test/",

@@ -21,7 +21,7 @@
       256,
       384
     ],
-    "path": "/next-js-snap-test/_next/image",
+    "path": "/_next/image",
     "loader": "default",
     "loaderFile": "",
     "domains": [],

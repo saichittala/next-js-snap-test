@@ -1,30 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/compressimages": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/compressimages",
-      "dataRoute": "/compressimages.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/404": {
       "experimentalBypassFor": [
         {
@@ -40,54 +16,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/404",
       "dataRoute": "/404.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/convertwebp": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/convertwebp",
-      "dataRoute": "/convertwebp.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -126,7 +54,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/convertpng": {
+    "/convertwebp": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -139,8 +67,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/convertpng",
-      "dataRoute": "/convertpng.rsc",
+      "srcRoute": "/convertwebp",
+      "dataRoute": "/convertwebp.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -174,6 +102,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/compressimages": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/compressimages",
+      "dataRoute": "/compressimages.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/convertjpg": {
       "experimentalBypassFor": [
         {
@@ -197,13 +149,61 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/convertpng": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/convertpng",
+      "dataRoute": "/convertpng.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "f5e18b144480d01acfb8acf8f7b791f5",
-    "previewModeSigningKey": "be1407dd4b1f35bf14eaf502cc189359edfb766b5783d831d5d5de50987b2fc8",
-    "previewModeEncryptionKey": "040cd406c0569efb61df218a3869429f224d4641652b70d90d9057bc34372047"
+    "previewModeId": "d2a3c5374284f6e645b66726932582d2",
+    "previewModeSigningKey": "e6b4f923379d3e5474ffe258b49fc952b6dd8238dfe487bd788bd28a26a0f69c",
+    "previewModeEncryptionKey": "4dd079cc592ded64e105e0ef3737ef8b99d44ad6de2fb5f82b86a3620f6fdfd1"
   }
 }
