@@ -5,10 +5,10 @@ export default function Header() {
   return (
     <header>
       <div className="header-main">
-        <a href="/">
+        <a href="${basePath}/">
           <Image
             className="logo"
-            src="../img/logo.svg"
+            src="${basePath}/img/logo.svg"
             alt="SnapIMG - Free Online Image Compression and Conversion Tool"
             width={100}
             height={50}

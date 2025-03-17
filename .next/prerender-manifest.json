@@ -1,6 +1,30 @@
 {
   "version": 4,
   "routes": {
+    "/compressimages": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/compressimages",
+      "dataRoute": "/compressimages.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/404": {
       "experimentalBypassFor": [
         {
@@ -102,7 +126,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/convertjpg": {
+    "/convertpng": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -115,8 +139,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/convertjpg",
-      "dataRoute": "/convertjpg.rsc",
+      "srcRoute": "/convertpng",
+      "dataRoute": "/convertpng.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -150,7 +174,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/convertpng": {
+    "/convertjpg": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -163,32 +187,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/convertpng",
-      "dataRoute": "/convertpng.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/compressimages": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/compressimages",
-      "dataRoute": "/compressimages.rsc",
+      "srcRoute": "/convertjpg",
+      "dataRoute": "/convertjpg.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -202,8 +202,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "2be54c6943d473dd203eb319aa116d94",
-    "previewModeSigningKey": "81cd736b25e5bf848fe12fe52e006e13e7960877527434119abae883d2774645",
-    "previewModeEncryptionKey": "90b6fce6cfb1be2b0207fea1833a3f18be94f9be2dc061314baf250b19f63e8a"
+    "previewModeId": "f5e18b144480d01acfb8acf8f7b791f5",
+    "previewModeSigningKey": "be1407dd4b1f35bf14eaf502cc189359edfb766b5783d831d5d5de50987b2fc8",
+    "previewModeEncryptionKey": "040cd406c0569efb61df218a3869429f224d4641652b70d90d9057bc34372047"
   }
 }

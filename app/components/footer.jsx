@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="footer-sub">
           <a href="/">
             <Image
-            className='logo'
-              src="/img/logo.svg"
+              className='logo'
+              src="${basePath}/img/logo.svg"
               alt="SnapIMG - Free Online Image Compression and Conversion Tool"
               width={100}
               height={50}

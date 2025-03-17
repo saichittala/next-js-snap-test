@@ -2,8 +2,16 @@
   "version": 3,
   "pages404": true,
   "caseSensitive": false,
-  "basePath": "",
+  "basePath": "/next-js-snap-test",
   "redirects": [
+    {
+      "source": "/next-js-snap-test/",
+      "destination": "/next-js-snap-test",
+      "basePath": false,
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^/next-js-snap-test/$"
+    },
     {
       "source": "/:path+/",
       "destination": "/:path+",
