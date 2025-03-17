@@ -2,10 +2,10 @@
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
   "/convertjpg/page": "/convertjpg",
-  "/404/page": "/404",
   "/convertpdf/page": "/convertpdf",
-  "/convertpng/page": "/convertpng",
-  "/convertwebp/page": "/convertwebp",
   "/compressimages/page": "/compressimages",
-  "/page": "/"
+  "/page": "/",
+  "/convertwebp/page": "/convertwebp",
+  "/convertpng/page": "/convertpng",
+  "/404/page": "/404"
 }

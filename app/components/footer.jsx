@@ -9,7 +9,7 @@ export default function Footer() {
           <a href="/">
             <Image
               className='logo'
-              src="./img/logo.svg"
+              src="/img/logo.svg"
               alt="SnapIMG - Free Online Image Compression and Conversion Tool"
               width={100}
               height={50}
