@@ -3,6 +3,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
+import Seo from "../components/Seo";
+
 
 interface ProcessedFile {
   blob: Blob;
@@ -21,18 +23,47 @@ function CompressImages() {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [isProcessed, setIsProcessed] = useState<boolean>(false);
 
+  const seoConfig = {
+    title: "Compress Images - Free Online Image Compressor | SnapIMG",
+    description:
+      "Compress images online for free. Reduce file size of JPG, PNG, or WebP images without losing quality. Download compressed images instantly.",
+    canonicalUrl: "https://www.snapimg.site/compressimages",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to Compress Images Online",
+      description: "Learn how to compress images using SnapIMG.",
+      step: [
+        {
+          "@type": "HowToStep",
+          text: "Upload your image in JPG, PNG, or WebP format.",
+        },
+        {
+          "@type": "HowToStep",
+          text: "Click 'Compress Image' to reduce file size.",
+        },
+        {
+          "@type": "HowToStep",
+          text: "Download the compressed image.",
+        },
+      ],
+    }
+  };
+
   // Handle file input change
   const handleFileInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files).filter((file: File) =>
-        file.type === 'image/png' ||
-        file.type === 'image/webp' ||
-        file.type === 'image/gif' ||
-        file.type === 'image/jpeg'
+        ["image/png", "image/webp", "image/gif", "image/jpeg"].includes(file.type)
       );
+
       setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+
+      // Reset input value to allow re-uploading the same files
+      e.target.value = "";
     }
   }, []);
+
 
 
 
@@ -91,41 +122,41 @@ function CompressImages() {
   }, []);
 
   // Process all images
-const processImages = useCallback(async () => {
-  if (!files || files.length === 0) {
-    alert('No files selected. Please upload images first.');
-    return;
-  }
-
-  setIsProcessing(true);
-  setProgress(0);
-
-  const totalFiles = files.length;
-  let processedCount = 0;
-  const newProcessedFiles: ProcessedFile[] = [];
-
-  for (const file of files) { // Changed 'let' to 'const' here
-    try {
-      const compressedBlob = await compressImage(file, quality, isLossless);
-      newProcessedFiles.push(compressedBlob);
-    } catch (error) {
-      console.error(`Error processing file ${file.name}:`, error);
+  const processImages = useCallback(async () => {
+    if (!files || files.length === 0) {
+      alert('No files selected. Please upload images first.');
+      return;
     }
 
-    processedCount++;
-    setProgress(Math.floor((processedCount / totalFiles) * 100));
-  }
+    setIsProcessing(true);
+    setProgress(0);
 
-  setProcessedFiles(newProcessedFiles);
-  setIsProcessing(false);
-  setIsProcessed(newProcessedFiles.length > 0);
+    const totalFiles = files.length;
+    let processedCount = 0;
+    const newProcessedFiles: ProcessedFile[] = [];
 
-  if (newProcessedFiles.length > 0) {
-    // alert('Compression complete! You can now download the files.');
-  } else {
-    alert('No valid images were processed.');
-  }
-}, [files, quality, isLossless, compressImage]);
+    for (const file of files) { // Changed 'let' to 'const' here
+      try {
+        const compressedBlob = await compressImage(file, quality, isLossless);
+        newProcessedFiles.push(compressedBlob);
+      } catch (error) {
+        console.error(`Error processing file ${file.name}:`, error);
+      }
+
+      processedCount++;
+      setProgress(Math.floor((processedCount / totalFiles) * 100));
+    }
+
+    setProcessedFiles(newProcessedFiles);
+    setIsProcessing(false);
+    setIsProcessed(newProcessedFiles.length > 0);
+
+    if (newProcessedFiles.length > 0) {
+      // alert('Compression complete! You can now download the files.');
+    } else {
+      alert('No valid images were processed.');
+    }
+  }, [files, quality, isLossless, compressImage]);
 
   // Download processed files
   const downloadProcessedFiles = useCallback(async () => {
@@ -169,11 +200,11 @@ const processImages = useCallback(async () => {
 
   // Cleanup object URLs
   useEffect(() => {
-      const objectUrls = files.map(file => URL.createObjectURL(file));
-      return () => {
-        objectUrls.forEach(url => URL.revokeObjectURL(url));
-      };
-    }, [files]);
+    const objectUrls = files.map(file => URL.createObjectURL(file));
+    return () => {
+      objectUrls.forEach(url => URL.revokeObjectURL(url));
+    };
+  }, [files]);
 
   useEffect(() => {
     const dropZone = document.getElementById('drop-zone');
@@ -209,148 +240,152 @@ const processImages = useCallback(async () => {
   }, []);
 
   return (
-    <main className="tool-container">
-      <div className="tool-header">
-        <h1>Compress Images</h1>
-        <p className="heading-desc">Drag and drop your images below to compress</p>
-      </div>
-      <div className='main-container-div'>
-        <div className='middle-container'>
-          <div className="upload-section" id="drop-zone">
-            <input
-              type="file"
-              id="file-input"
-              multiple
-              onChange={handleFileInputChange}
-              accept=".png,.webp,.gif,.jpeg,.jpg"
-              hidden
-            />
-            <div
-              className="upload-content"
-              onClick={() => document.getElementById('file-input')?.click()}
-            >
-              <img src="/img/upload.svg" alt="Upload" className="upload-icon" width={50} height={50} />
-              <h3>Drag & Drop Images</h3>
-              <p>or click to browse files</p>
-              <p className="support-text">Supports: PNG, WebP, GIF, JPEG</p>
+    <div>
+      <Seo {...seoConfig} />
+      <main className="tool-container">
+        <div className="tool-header">
+          <h1>Compress Images</h1>
+          <p className="heading-desc">Drag and drop your images below to compress</p>
+        </div>
+        <div className='main-container-div'>
+          <div className='middle-container'>
+            <div className="upload-section" id="drop-zone">
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                onChange={handleFileInputChange}
+                accept=".png,.webp,.gif,.jpeg,.jpg"
+                hidden
+              />
+              <div
+                className="upload-content"
+                onClick={() => document.getElementById('file-input')?.click()}
+              >
+                <img src="/img/upload.svg" alt="Upload" className="upload-icon" width={50} height={50} />
+                <h3>Drag & Drop Images</h3>
+                <p>or click to browse files</p>
+                <p className="support-text">Supports: PNG, WebP, GIF, JPEG</p>
+              </div>
             </div>
-          </div>
 
-          {/* File Previews */}
-          {files.length > 0 && (
-            <div className="image-preview-main">
-              <div className='image-preview-sub'>
-                <h3>Uploaded Images</h3>
-                <div className="file-counter">
-                  {files.length} files uploaded | {formatFileSize(getTotalSize())}
+            {/* File Previews */}
+            {files.length > 0 && (
+              <div className="image-preview-main">
+                <div className='image-preview-sub'>
+                  <h3>Uploaded Images</h3>
+                  <div className="file-counter">
+                    {files.length} files uploaded | {formatFileSize(getTotalSize())}
+                  </div>
+                </div>
+                <div className='image-preview-grid'>
+                  {files.map((file, index) => (
+                    <div key={index} className="preview-item">
+                      <span className='filesize-img'>{formatFileSize(file.size)}</span>
+
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt={file.name}
+                        className="preview-image"
+                        width={100}
+                        height={100}
+                      />
+                      <button
+                        className="delete-btn"
+                        onClick={() => deleteFile(index)}
+                      >
+                        <img src="/img/delete.svg" alt="Delete" width={20} height={20} />
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className='image-preview-grid'>
-                {files.map((file, index) => (
-                  <div key={index} className="preview-item">
-                    <span className='filesize-img'>{formatFileSize(file.size)}</span>
-
-                    <img
-                      src={URL.createObjectURL(file)}
-                      alt={file.name}
-                      className="preview-image"
-                      width={100}
-                      height={100}
-                    />
-                    <button
-                      className="delete-btn"
-                      onClick={() => deleteFile(index)}
-                    >
-                      <img src="/img/delete.svg" alt="Delete" width={20} height={20} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-        <div className='right-options-container'>
-          <div>
-            <h3 className='right-options-heading'>Progress</h3>
-            <div className="progress-container">
-              <div className="progress-bar">
-                <div className="progress" style={{ width: `${progress}%` }}></div>
-              </div>
-              <div className="progress-text" id="progress-text">
-                {progress}% Completed
-              </div>
-            </div>
+            )}
           </div>
-          <div>
+          <div className='right-options-container'>
             <div>
-              <h3 className='right-options-heading'>Actions</h3>
-              <div className="action-bar">
-                {!isProcessed ? (
-                  <button
-                    className="btn-4"
-                    onClick={processImages}
-                    disabled={isProcessing || files.length === 0}
-                  >
-                    {isProcessing ? 'Compressing...' : 'Compress Images'}
-                  </button>
-                ) : (
-                  <>
+              <h3 className='right-options-heading'>Progress</h3>
+              <div className="progress-container">
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: `${progress}%` }}></div>
+                </div>
+                <div className="progress-text" id="progress-text">
+                  {progress}% Completed
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <h3 className='right-options-heading'>Actions</h3>
+                <div className="action-bar">
+                  {!isProcessed ? (
                     <button
                       className="btn-4"
-                      onClick={downloadProcessedFiles}
+                      onClick={processImages}
+                      disabled={isProcessing || files.length === 0}
                     >
-                      Download
+                      {isProcessing ? 'Compressing...' : 'Compress Images'}
                     </button>
-                    <button
-                      className="btn-2"
-                      onClick={resetState}
-                      style={{ marginLeft: '10px' }}
-                    >
-                      Reset
-                    </button>
-                  </>
-                )}
-              </div>
-            </div>
-
-          </div>
-
-          <div className="compression-options">
-            <div>
-              <h3 className='right-options-heading'>Lossless Compression</h3>
-              <div className="checkbox-container">
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={isLossless}
-                    onChange={() => setIsLossless(!isLossless)}
-                  />
-                  Enable
-                </label>
-              </div>
-            </div>
-          </div>
-          {!isLossless && (
-            <div>
-              <><h3 className='right-options-heading'>Quality</h3><div className="quality-slider">
-                <input
-                  type="range"
-                  id="quality-range"
-                  min="10"
-                  max="100"
-                  value={quality}
-                  onChange={(e) => setQuality(Number(e.target.value))}
-                  disabled={isLossless} />
-                <div className='quality-range-text'>
-                  {quality}%
+                  ) : (
+                    <>
+                      <button
+                        className="btn-4"
+                        onClick={downloadProcessedFiles}
+                      >
+                        Download
+                      </button>
+                      <button
+                        className="btn-2"
+                        onClick={resetState}
+                        style={{ marginLeft: '10px' }}
+                      >
+                        Reset
+                      </button>
+                    </>
+                  )}
                 </div>
-              </div></>
-            </div>
-          )}
+              </div>
 
+            </div>
+
+            <div className="compression-options">
+              <div>
+                <h3 className='right-options-heading'>Lossless Compression</h3>
+                <div className="checkbox-container">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={isLossless}
+                      onChange={() => setIsLossless(!isLossless)}
+                    />
+                    Enable
+                  </label>
+                </div>
+              </div>
+            </div>
+            {!isLossless && (
+              <div>
+                <><h3 className='right-options-heading'>Quality</h3><div className="quality-slider">
+                  <input
+                    type="range"
+                    id="quality-range"
+                    min="10"
+                    max="100"
+                    value={quality}
+                    onChange={(e) => setQuality(Number(e.target.value))}
+                    disabled={isLossless} />
+                  <div className='quality-range-text'>
+                    {quality}%
+                  </div>
+                </div></>
+              </div>
+            )}
+
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
+
   );
 }
 

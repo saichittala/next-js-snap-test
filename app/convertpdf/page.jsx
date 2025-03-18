@@ -13,13 +13,15 @@ function ConvertToPdf() {
   const [isProcessed, setIsProcessed] = useState(false);
   const [combinePdf, setCombinePdf] = useState(true); // Toggle for combining PDFs
 
-  // Handle file input change
   const handleFileInputChange = useCallback((e) => {
-    if (e.target.files) {
+      if (!e.target.files.length) return; // Ensure files are selected
+    
       const newFiles = Array.from(e.target.files);
       setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    }
-  }, []);
+    
+      // Reset the input field to allow re-uploading the same files
+      e.target.value = "";
+    }, []);
 
   // Helper function to format file size
   const formatFileSize = (size) => {

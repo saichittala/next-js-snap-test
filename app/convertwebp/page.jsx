@@ -3,6 +3,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
+import Seo from "../components/Seo";
+
 
 function ConvertToWebp() {
   const [files, setFiles] = useState([]);
@@ -11,11 +13,45 @@ function ConvertToWebp() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
 
+  const seoConfig = {
+    title: "Convert to PDF - Free Online Image to PDF Converter | SnapIMG",
+    description:
+      "Convert images to PDF format online for free. Drag and drop your JPG, PNG, or WebP files and download high-quality PDF files instantly.",
+    canonicalUrl: "https://www.snapimg.com/convertpdf",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to Convert Images to PDF Format",
+      description: "Learn how to convert images to PDF format using SnapIMG.",
+      step: [
+        {
+          "@type": "HowToStep",
+          text: "Upload your image in JPG, PNG, or WebP format.",
+        },
+        {
+          "@type": "HowToStep",
+          text: "Click 'Convert to PDF' to process the image.",
+        },
+        {
+          "@type": "HowToStep",
+          text: "Download the converted PDF file.",
+        },
+      ],
+    },
+  };
+
   // Handle file input change
   const handleFileInputChange = useCallback((e) => {
+    if (!e.target.files.length) return; // Ensure files are selected
+
     const newFiles = Array.from(e.target.files);
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+
+    // Reset the input field to allow re-uploading the same files
+    e.target.value = "";
   }, []);
+
+
 
   // Helper function to format file size
   const formatFileSize = (size) => {
@@ -196,102 +232,106 @@ function ConvertToWebp() {
   };
 
   return (
-    <div className="tool-container">
-      <div className="tool-header">
-        <h1>Convert to WebP</h1> {/* Update title */}
-        <p className="heading-desc">
-          Drag and drop your images below to convert them to WebP format {/* Update description */}
-        </p>
-      </div>
-
-      <div className='main-container-div'>
-        <div className='middle-container'>
-          <div className="upload-section" id="drop-zone">
-            <input
-              type="file"
-              id="file-input"
-              multiple
-              onChange={handleFileInputChange}
-              hidden
-            />
-            <div
-              className="upload-content"
-              onClick={() => document.getElementById('file-input').click()}
-            >
-              <img src="/img/upload.svg" alt="Upload" className="upload-icon" />
-              <h3>Drag & Drop Images</h3>
-              <p>or click to browse files</p>
-              <p className="support-text">Supports: PNG, WEBP, GIF, JPEG</p> {/* Update supported formats */}
-            </div>
-          </div>
-
-          {/* File Previews */}
-          {files.length > 0 && (
-            <div className="image-preview-main">
-              <div className='image-preview-sub'>
-                <h3>Uploaded Images</h3>
-                <div className="file-counter">
-                  {files.length} files uploaded | {formatFileSize(getTotalSize())}
-                </div>
-              </div>
-              <div className='image-preview-grid'>
-                {files.map((file, index) => (
-                  <div key={index} className="preview-item">
-                    <span className='filesize-img'>{formatFileSize(file.size)}</span>
-
-                    <img
-                      src={URL.createObjectURL(file)}
-                      alt={file.name}
-                      className="preview-image"
-                    />
-                    <button
-                      className="delete-btn"
-                      onClick={() => deleteFile(index)}
-                    >
-                      <img src="/img/delete.svg" alt="Delete" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+    <div>
+      <Seo {...seoConfig} />
+      <div className="tool-container">
+        <div className="tool-header">
+          <h1>Convert to WebP</h1> {/* Update title */}
+          <p className="heading-desc">
+            Drag and drop your images below to convert them to WebP format {/* Update description */}
+          </p>
         </div>
 
-        <div className='right-options-container'>
-          <div>
-            <h3 className='right-options-heading'>Progress</h3>
-            <div className="progress-container">
-              <div className="progress-bar">
-                <div className="progress" style={{ width: `${progress}%` }}></div>
-              </div>
-              <div className="progress-text" id="progress-text">
-                {progress}% Completed
+        <div className='main-container-div'>
+          <div className='middle-container'>
+            <div className="upload-section" id="drop-zone">
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                onChange={handleFileInputChange}
+                hidden
+              />
+              <div
+                className="upload-content"
+                onClick={() => document.getElementById('file-input').click()}
+              >
+                <img src="/img/upload.svg" alt="Upload" className="upload-icon" />
+                <h3>Drag & Drop Images</h3>
+                <p>or click to browse files</p>
+                <p className="support-text">Supports: PNG, WEBP, GIF, JPEG</p> {/* Update supported formats */}
               </div>
             </div>
+
+            {/* File Previews */}
+            {files.length > 0 && (
+              <div className="image-preview-main">
+                <div className='image-preview-sub'>
+                  <h3>Uploaded Images</h3>
+                  <div className="file-counter">
+                    {files.length} files uploaded | {formatFileSize(getTotalSize())}
+                  </div>
+                </div>
+                <div className='image-preview-grid'>
+                  {files.map((file, index) => (
+                    <div key={index} className="preview-item">
+                      <span className='filesize-img'>{formatFileSize(file.size)}</span>
+
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt={file.name}
+                        className="preview-image"
+                      />
+                      <button
+                        className="delete-btn"
+                        onClick={() => deleteFile(index)}
+                      >
+                        <img src="/img/delete.svg" alt="Delete" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          <div>
-            <h3 className='right-options-heading'>Actions</h3>
-            <div className="action-bar">
-              {!isProcessed ? (
-                <button className="btn-4" onClick={processImages} disabled={isProcessing || files.length === 0}>
-                  {isProcessing ? 'Processing...' : 'Convert to WebP'}
-                </button>
-              ) : (
-                <button className="btn-4" onClick={downloadProcessedFiles}>
-                  Download
-                </button>
-              )}
-              {isProcessed && (
-                <button className="btn-2" onClick={resetState}>
-                  Reset
-                </button>
-              )}
+          <div className='right-options-container'>
+            <div>
+              <h3 className='right-options-heading'>Progress</h3>
+              <div className="progress-container">
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: `${progress}%` }}></div>
+                </div>
+                <div className="progress-text" id="progress-text">
+                  {progress}% Completed
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className='right-options-heading'>Actions</h3>
+              <div className="action-bar">
+                {!isProcessed ? (
+                  <button className="btn-4" onClick={processImages} disabled={isProcessing || files.length === 0}>
+                    {isProcessing ? 'Processing...' : 'Convert to WebP'}
+                  </button>
+                ) : (
+                  <button className="btn-4" onClick={downloadProcessedFiles}>
+                    Download
+                  </button>
+                )}
+                {isProcessed && (
+                  <button className="btn-2" onClick={resetState}>
+                    Reset
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   );
 }
 

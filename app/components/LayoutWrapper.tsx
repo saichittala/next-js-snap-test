@@ -1,20 +1,25 @@
-"use client"; // Mark as client component
+"use client";
 
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Header from "./header";
 import Footer from "./footer";
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Define paths where Header & Footer should be hidden
+  useEffect(() => {
+    setCurrentPath(pathname);
+  }, [pathname]);
+
   const hiddenRoutes = ["/login", "/signup", "/dashboard", "/404"];
 
   return (
     <>
-      {!hiddenRoutes.includes(pathname) && <Header />}
+      {currentPath && !hiddenRoutes.includes(currentPath) && <Header />}
       <main>{children}</main>
-      {!hiddenRoutes.includes(pathname) && <Footer />}
+      {currentPath && !hiddenRoutes.includes(currentPath) && <Footer />}
     </>
   );
 }
