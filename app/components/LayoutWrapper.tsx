@@ -14,13 +14,14 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
     setCurrentPath(pathname);
   }, [pathname]);
 
-  const hiddenRoutes = ["/login", "/signup", "/dashboard", "/404"];
+  const hiddenheaderRoutes = ["/login", "/signup", "/dashboard", "/404"];
+  const hiddenfooterRoutes = ["/convertpng", "/convertjpg", "/convertwebp", "/compressimages", "/convertpdf"];
 
   return (
     <>
-      {currentPath && !hiddenRoutes.includes(currentPath) && <Header />}
+      {currentPath && !hiddenheaderRoutes.includes(currentPath) && <Header />}
       <main>{children}</main>
-      {currentPath && !hiddenRoutes.includes(currentPath) && <Footer />}
+      {currentPath && !hiddenfooterRoutes.includes(currentPath) && <Footer />}
     </>
   );
 }

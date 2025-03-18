@@ -2,10 +2,10 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/convertjpg/page": "app/convertjpg/page.js",
-  "/convertpng/page": "app/convertpng/page.js",
-  "/404/page": "app/404/page.js",
-  "/convertpdf/page": "app/convertpdf/page.js",
   "/convertwebp/page": "app/convertwebp/page.js",
+  "/convertpdf/page": "app/convertpdf/page.js",
   "/compressimages/page": "app/compressimages/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/convertpng/page": "app/convertpng/page.js",
+  "/404/page": "app/404/page.js"
 }

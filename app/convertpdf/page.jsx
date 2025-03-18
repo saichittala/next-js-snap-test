@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
-import Seo from '../components/seo';
+import Seo from '../components/Seo';
 
 function ConvertToPdf() {
   const [files, setFiles] = useState([]);

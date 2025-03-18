@@ -3,7 +3,7 @@
 import Image from "next/image";
 import OptionsGrid from "./components/card-grid"; // Use absolute import for clarity
 import "./globals.css"; // Ensure styles are imported
-import Seo from "./components/seo";
+import Seo from "./components/Seo";
 
 
 const Home = () => {

@@ -1,4 +1,4 @@
-// File: E:\SnapIMG\next-js-snap-test\app\convertpng\page.jsx
+// File: /Users/apple/Desktop/next-js-snap-test/app/convertpng/page.jsx
 import * as entry from '../../../../app/convertpng/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
