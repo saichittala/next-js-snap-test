@@ -3,11 +3,31 @@
 import Image from "next/image";
 import OptionsGrid from "./components/card-grid"; // Use absolute import for clarity
 import "./globals.css"; // Ensure styles are imported
+import Seo from "./components/Seo";
 
 
 const Home = () => {
+
+  const seoConfig = {
+    title: "Free Online Image Compression & Conversion Tool - SnapIMG",
+    description:
+      "Compress and convert images online for free. Reduce file size, convert JPG, PNG, WebP formats, and maintain high quality with SnapIMG. No downloads required!",
+    canonicalUrl: "https://snapimg.site",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Free Online Image Compression & Conversion Tool - SnapIMG",
+      description:
+        "Compress and convert images online for free. Reduce file size, convert JPG, PNG, WebP formats, and maintain high quality with SnapIMG. No downloads required!",
+      url: "https://snapimg.site",
+    },
+  };
+
+
   return (
     <div>
+      <Seo {...seoConfig} />
+
       <main>
         {/* Hero Section */}
         <section>
