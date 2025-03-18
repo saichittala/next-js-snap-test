@@ -1,11 +1,11 @@
 {
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
+  "/convertpdf/page": "/convertpdf",
   "/404/page": "/404",
+  "/compressimages/page": "/compressimages",
   "/convertpng/page": "/convertpng",
-  "/convertwebp/page": "/convertwebp",
   "/convertjpg/page": "/convertjpg",
   "/page": "/",
-  "/compressimages/page": "/compressimages",
-  "/convertpdf/page": "/convertpdf"
+  "/convertwebp/page": "/convertwebp"
 }

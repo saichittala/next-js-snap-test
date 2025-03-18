@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "outDirectory": "E:\\SnapIMG\\next-js-snap-test\\.next\\export",
-  "success": false
+  "outDirectory": "E:\\SnapIMG\\next-js-snap-test\\dist",
+  "success": true
 }
