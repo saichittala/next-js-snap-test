@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
-import Seo from '../components/Seo';
+import Seo from '../components/seo';
 
 function Convertjpg() {
   const [files, setFiles] = useState([]);
