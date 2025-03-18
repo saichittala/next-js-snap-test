@@ -4,6 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
+import Seo from '../components/Seo';
 
 function ConvertToPdf() {
   const [files, setFiles] = useState([]);
@@ -14,14 +15,64 @@ function ConvertToPdf() {
   const [combinePdf, setCombinePdf] = useState(true); // Toggle for combining PDFs
 
   const handleFileInputChange = useCallback((e) => {
-      if (!e.target.files.length) return; // Ensure files are selected
-    
-      const newFiles = Array.from(e.target.files);
-      setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    
-      // Reset the input field to allow re-uploading the same files
-      e.target.value = "";
-    }, []);
+    if (!e.target.files.length) return; // Ensure files are selected
+
+    const newFiles = Array.from(e.target.files);
+    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+
+    // Reset the input field to allow re-uploading the same files
+    e.target.value = "";
+  }, []);
+
+
+  const seoConfig = {
+    title: "Convert to PDF - Free Online Image to PDF Converter | SnapIMG",
+    description:
+      "Convert images to PDF format online for free. Drag and drop your JPG, PNG, or WebP files and download high-quality PDF files instantly.",
+    canonicalUrl: "https://www.snapimg.site/convertpdf",
+    keywords: [
+      "convert to PDF",
+      "image to PDF converter",
+      "free PDF converter",
+      "online PDF converter",
+      "convert JPG to PDF",
+      "convert PNG to PDF",
+      "convert WebP to PDF",
+      "best PDF converter online",
+      "high-quality PDF conversion",
+      "PDF image converter",
+      "fast PDF converter tool",
+      "bulk PDF conversion online",
+      "instant PDF converter",
+      "JPG to PDF converter free",
+      "PNG to PDF format converter",
+      "SnapIMG PDF conversion",
+      "best free image to PDF converter",
+      "merge images into PDF",
+      "convert multiple images to PDF"
+    ],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to Convert Images to PDF Format",
+      description: "Learn how to convert images to PDF format using SnapIMG.",
+      step: [
+        {
+          "@type": "HowToStep",
+          text: "Upload your image in JPG, PNG, or WebP format.",
+        },
+        {
+          "@type": "HowToStep",
+          text: "Click 'Convert to PDF' to process the image.",
+        },
+        {
+          "@type": "HowToStep",
+          text: "Download the converted PDF file.",
+        },
+      ],
+    },
+  };
+
 
   // Helper function to format file size
   const formatFileSize = (size) => {
@@ -227,118 +278,124 @@ function ConvertToPdf() {
     setIsProcessed(false);
   };
 
+  
+
   return (
-    <div className="tool-container">
-      <div className="tool-header">
-        <h1>Convert to PDF</h1>
-        <p className="heading-desc">
-          Drag and drop your images below to convert them to PDF format
-        </p>
-      </div>
-
-      <div className="main-container-div">
-        <div className="middle-container">
-          <div className="upload-section" id="drop-zone">
-            <input
-              type="file"
-              id="file-input"
-              multiple
-              onChange={handleFileInputChange}
-              hidden
-            />
-            <div
-              className="upload-content"
-              onClick={() => document.getElementById('file-input')?.click()}
-            >
-              <img src="/img/upload.svg" alt="Upload" className="upload-icon" />
-              <h3>Drag & Drop Images</h3>
-              <p>or click to browse files</p>
-              <p className="support-text">Supports: PNG, WEBP, GIF, JPEG</p>
-            </div>
-          </div>
-
-          {files.length > 0 && (
-            <div className="image-preview-main">
-              <div className="image-preview-sub">
-                <h3>Uploaded Images</h3>
-                <div className="file-counter">
-                  {files.length} files uploaded | {formatFileSize(getTotalSize())}
-                </div>
-              </div>
-              <div className="image-preview-grid">
-                {files.map((file, index) => (
-                  <div key={index} className="preview-item">
-                    <span className="filesize-img">{formatFileSize(file.size)}</span>
-
-                    <img
-                      src={URL.createObjectURL(file)}
-                      alt={file.name}
-                      className="preview-image"
-                    />
-                    <button
-                      className="delete-btn"
-                      onClick={() => deleteFile(index)}
-                    >
-                      <img src="/img/delete.svg" alt="Delete" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+    <div>
+      <Seo {...seoConfig} />
+      <div className="tool-container">
+        <div className="tool-header">
+          <h1>Convert to PDF</h1>
+          <p className="heading-desc">
+            Drag and drop your images below to convert them to PDF format
+          </p>
         </div>
 
-        {/* Combine PDF Option */}
-        <div className="right-options-container">
-          <div>
-            <h3 className="right-options-heading">Progress</h3>
-            <div className="progress-container">
-              <div className="progress-bar">
-                <div className="progress" style={{ width: `${progress}%` }}></div>
-              </div>
-              <div className="progress-text" id="progress-text">
-                {progress}% Completed
+        <div className="main-container-div">
+          <div className="middle-container">
+            <div className="upload-section" id="drop-zone">
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                onChange={handleFileInputChange}
+                hidden
+              />
+              <div
+                className="upload-content"
+                onClick={() => document.getElementById('file-input')?.click()}
+              >
+                <img src="/img/upload.svg" alt="Upload" className="upload-icon" />
+                <h3>Drag & Drop Images</h3>
+                <p>or click to browse files</p>
+                <p className="support-text">Supports: PNG, WEBP, GIF, JPEG</p>
               </div>
             </div>
-          </div>
-          <div>
-            <h3 className="right-options-heading">Actions</h3>
-            <div className="action-bar">
-              {!isProcessed ? (
-                <button className="btn-4" onClick={processImages} disabled={isProcessing || files.length === 0}>
-                  {isProcessing ? 'Processing...' : 'Convert to PDF'}
-                </button>
-              ) : (
-                <button className="btn-4" onClick={downloadProcessedFiles}>
-                  Download
-                </button>
-              )}
 
-              {isProcessed && (
-                <button className="btn-2" onClick={resetState} style={{ marginLeft: '10px' }}>
-                  Reset
-                </button>
-              )}
-            </div>
+            {files.length > 0 && (
+              <div className="image-preview-main">
+                <div className="image-preview-sub">
+                  <h3>Uploaded Images</h3>
+                  <div className="file-counter">
+                    {files.length} files uploaded | {formatFileSize(getTotalSize())}
+                  </div>
+                </div>
+                <div className="image-preview-grid">
+                  {files.map((file, index) => (
+                    <div key={index} className="preview-item">
+                      <span className="filesize-img">{formatFileSize(file.size)}</span>
+
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt={file.name}
+                        className="preview-image"
+                      />
+                      <button
+                        className="delete-btn"
+                        onClick={() => deleteFile(index)}
+                      >
+                        <img src="/img/delete.svg" alt="Delete" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-          <div className="compression-options">
+
+          {/* Combine PDF Option */}
+          <div className="right-options-container">
             <div>
-              <h3 className="right-options-heading">Image Merge</h3>
-              <div className="checkbox-container">
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={combinePdf}
-                    onChange={() => setCombinePdf(!combinePdf)}
-                  />
-                  Enable
-                </label>
+              <h3 className="right-options-heading">Progress</h3>
+              <div className="progress-container">
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: `${progress}%` }}></div>
+                </div>
+                <div className="progress-text" id="progress-text">
+                  {progress}% Completed
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="right-options-heading">Actions</h3>
+              <div className="action-bar">
+                {!isProcessed ? (
+                  <button className="btn-4" onClick={processImages} disabled={isProcessing || files.length === 0}>
+                    {isProcessing ? 'Processing...' : 'Convert to PDF'}
+                  </button>
+                ) : (
+                  <button className="btn-4" onClick={downloadProcessedFiles}>
+                    Download
+                  </button>
+                )}
+
+                {isProcessed && (
+                  <button className="btn-2" onClick={resetState} style={{ marginLeft: '10px' }}>
+                    Reset
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="compression-options">
+              <div>
+                <h3 className="right-options-heading">Image Merge</h3>
+                <div className="checkbox-container">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={combinePdf}
+                      onChange={() => setCombinePdf(!combinePdf)}
+                    />
+                    Enable
+                  </label>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   );
 }
 

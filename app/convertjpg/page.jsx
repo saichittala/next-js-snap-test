@@ -17,6 +17,26 @@ function Convertjpg() {
     description:
       "Convert images to JPG format online for free. Drag and drop your PNG, WEBP, or GIF files and download high-quality JPG images instantly.",
     canonicalUrl: "https://www.snapimg.site/convertjpg",
+    keywords: [
+      "convert to JPG",
+      "JPG converter",
+      "online JPG converter",
+      "free JPG converter",
+      "convert PNG to JPG",
+      "convert WEBP to JPG",
+      "convert GIF to JPG",
+      "best JPG converter online",
+      "high-quality JPG converter",
+      "JPG file converter",
+      "image to JPG converter",
+      "convert images to JPG format",
+      "snapimg JPG conversion",
+      "fast JPG converter tool",
+      "bulk JPG conversion online",
+      "instant JPG converter",
+      "JPG format converter free",
+      "best free image converter"
+    ],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -38,6 +58,7 @@ function Convertjpg() {
       ],
     },
   };
+  
 
   // Handle file input change
   const handleFileInputChange = useCallback((e) => {

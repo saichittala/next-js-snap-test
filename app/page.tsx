@@ -9,19 +9,42 @@ import Seo from "./components/Seo";
 const Home = () => {
 
   const seoConfig = {
-    title: "Free Online Image Compression & Conversion Tool - SnapIMG",
+    title: "Free Online Image Compressor & Converter | SnapIMG",
     description:
-      "Compress and convert images online for free. Reduce file size, convert JPG, PNG, WebP formats, and maintain high quality with SnapIMG. No downloads required!",
+      "Compress and convert images online for free. Reduce image size, convert JPG, PNG, WebP, and maintain high quality. No downloads required! Try SnapIMG now.",
     canonicalUrl: "https://snapimg.site",
+    keywords: [
+      "free image compressor",
+      "image compression tool",
+      "compress images online",
+      "reduce image size",
+      "convert images online",
+      "JPG to PNG converter",
+      "PNG to WebP conversion",
+      "WebP to JPG tool",
+      "best image converter",
+      "fast image compressor",
+      "online image optimizer",
+      "bulk image compression",
+      "high-quality image compression",
+      "SnapIMG free image tool",
+      "convert images without losing quality",
+      "compress photos without losing quality",
+      "fastest image compressor online",
+      "image resizer and converter"
+    ],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "Free Online Image Compression & Conversion Tool - SnapIMG",
+      name: "Free Online Image Compressor & Converter | SnapIMG",
       description:
-        "Compress and convert images online for free. Reduce file size, convert JPG, PNG, WebP formats, and maintain high quality with SnapIMG. No downloads required!",
+        "Compress and convert images online for free. Reduce image size, convert JPG, PNG, WebP, and maintain high quality. No downloads required! Try SnapIMG now.",
       url: "https://snapimg.site",
     },
+
+    
   };
+  
 
 
   return (
