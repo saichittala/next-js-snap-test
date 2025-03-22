@@ -14,53 +14,53 @@ function ConvertToPng() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
 
-  const seoConfig = {
-    title: "Convert to PNG - Free Online Image Converter | SnapIMG",
-    description:
-      "Convert images to PNG format online for free. Drag and drop your JPG, WEBP, or GIF files and download high-quality PNG images instantly.",
-    canonicalUrl: "https://www.snapimg.site/convertpng",
-    keywords: [
-      "convert to PNG",
-      "PNG converter",
-      "online PNG converter",
-      "free PNG converter",
-      "convert JPG to PNG",
-      "convert WEBP to PNG",
-      "convert GIF to PNG",
-      "best PNG converter online",
-      "high-quality PNG converter",
-      "image to PNG converter",
-      "convert images to PNG format",
-      "transparent PNG converter",
-      "fast PNG converter tool",
-      "bulk PNG conversion online",
-      "instant PNG converter",
-      "JPG to PNG converter free",
-      "SnapIMG PNG conversion",
-      "PNG format converter free",
-      "best free image converter"
-    ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: "How to Convert Images to PNG Format",
-      description: "Learn how to convert images to PNG format using SnapIMG.",
-      step: [
-        {
-          "@type": "HowToStep",
-          text: "Upload your image in JPG, WEBP, or GIF format.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Click 'Convert to PNG' to process the image.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Download the converted PNG image.",
-        },
-      ],
-    },
-  };
+  // const seoConfig = {
+  //   title: "Convert to PNG - Free Online Image Converter | SnapIMG",
+  //   description:
+  //     "Convert images to PNG format online for free. Drag and drop your JPG, WEBP, or GIF files and download high-quality PNG images instantly.",
+  //   canonicalUrl: "https://www.snapimg.site/convertpng",
+  //   keywords: [
+  //     "convert to PNG",
+  //     "PNG converter",
+  //     "online PNG converter",
+  //     "free PNG converter",
+  //     "convert JPG to PNG",
+  //     "convert WEBP to PNG",
+  //     "convert GIF to PNG",
+  //     "best PNG converter online",
+  //     "high-quality PNG converter",
+  //     "image to PNG converter",
+  //     "convert images to PNG format",
+  //     "transparent PNG converter",
+  //     "fast PNG converter tool",
+  //     "bulk PNG conversion online",
+  //     "instant PNG converter",
+  //     "JPG to PNG converter free",
+  //     "SnapIMG PNG conversion",
+  //     "PNG format converter free",
+  //     "best free image converter"
+  //   ],
+  //   structuredData: {
+  //     "@context": "https://schema.org",
+  //     "@type": "HowTo",
+  //     name: "How to Convert Images to PNG Format",
+  //     description: "Learn how to convert images to PNG format using SnapIMG.",
+  //     step: [
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Upload your image in JPG, WEBP, or GIF format.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Click 'Convert to PNG' to process the image.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Download the converted PNG image.",
+  //       },
+  //     ],
+  //   },
+  // };
   
 
   // Handle file input change
@@ -252,7 +252,7 @@ function ConvertToPng() {
 
   return (
     <div>
-      <Seo {...seoConfig} />
+      {/* <Seo {...seoConfig} /> */}
       <div className="tool-container">
         <div className="tool-header">
           <h1>Convert to PNG</h1> {/* Update title */}

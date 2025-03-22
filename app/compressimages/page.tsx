@@ -22,100 +22,100 @@ function CompressImages() {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [isProcessed, setIsProcessed] = useState<boolean>(false);
 
-  const seoConfig = {
-    title: "Free Image Compressor - Compress Images Online Without Losing Quality | SnapIMG",
-    description:
-      "Compress images online for free using SnapIMG. Reduce file size of JPG, PNG, and WebP images with no quality loss. Fast, secure & easy image compression.",
-    keywords: [
-      "compress images online",
-      "image compressor",
-      "reduce image size",
-      "compress JPG",
-      "compress PNG",
-      "compress WebP",
-      "online image optimizer",
-      "free image compression",
-      "best image compressor",
-      "reduce image file size"
-    ],
-    canonicalUrl: "https://www.snapimg.site/compressimages",
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "Compress Images Online - Free Image Compressor",
-      description: "Use SnapIMG to compress images online instantly without quality loss. Supports JPG, PNG, and WebP formats.",
-      url: "https://www.snapimg.site/compressimages",
-      keywords: "compress images online, image compressor, reduce image size, free image compression",
-      inLanguage: "en",
-      image: "https://www.snapimg.site/assets/compress-preview.jpg",
-      isPartOf: {
-        "@type": "WebSite",
-        name: "SnapIMG",
-        url: "https://www.snapimg.site"
-      },
-      mainEntity: {
-        "@type": "HowTo",
-        name: "How to Compress Images Online",
-        description: "Follow these steps to compress images online using SnapIMG.",
-        estimatedCost: "Free",
-        totalTime: "PT10S",
-        tool: {
-          "@type": "SoftwareApplication",
-          name: "SnapIMG",
-          operatingSystem: "Web",
-          applicationCategory: "MultimediaApplication",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD"
-          }
-        },
-        step: [
-          {
-            "@type": "HowToStep",
-            name: "Upload Your Image",
-            text: "Select or drag and drop JPG, PNG, or WebP files.",
-            image: "https://www.snapimg.site/assets/step1-upload.jpg"
-          },
-          {
-            "@type": "HowToStep",
-            name: "Compress Image",
-            text: "Click ‘Compress’ to reduce file size without quality loss.",
-            image: "https://www.snapimg.site/assets/step2-compress.jpg"
-          },
-          {
-            "@type": "HowToStep",
-            name: "Download Compressed Image",
-            text: "Download and save your optimized image instantly.",
-            image: "https://www.snapimg.site/assets/step3-download.jpg"
-          }
-        ]
-      }
-    },
-    openGraph: {
-      title: "Compress Images Online - Free & Fast Image Compressor | SnapIMG",
-      description: "Compress images online for free. Reduce JPG, PNG, or WebP file sizes instantly without losing quality. SnapIMG is the fastest online image compressor.",
-      url: "https://www.snapimg.site/compressimages",
-      type: "website",
-      locale: "en_US",
-      site_name: "SnapIMG",
-      images: [
-        {
-          url: "https://www.snapimg.site/assets/compress-preview.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Compress Images Online - SnapIMG"
-        }
-      ]
-    },
-    twitterCard: {
-      card: "summary_large_image",
-      title: "Compress Images Online - Free & Fast Image Compressor | SnapIMG",
-      description: "Reduce image file sizes with SnapIMG’s free image compressor. Supports JPG, PNG, WebP formats. No quality loss!",
-      image: "https://www.snapimg.site/assets/compress-preview.jpg",
-      site: "@SnapIMG"
-    }
-  };
+  // const seoConfig = {
+  //   title: "Free Image Compressor - Compress Images Online Without Losing Quality | SnapIMG",
+  //   description:
+  //     "Compress images online for free using SnapIMG. Reduce file size of JPG, PNG, and WebP images with no quality loss. Fast, secure & easy image compression.",
+  //   keywords: [
+  //     "compress images online",
+  //     "image compressor",
+  //     "reduce image size",
+  //     "compress JPG",
+  //     "compress PNG",
+  //     "compress WebP",
+  //     "online image optimizer",
+  //     "free image compression",
+  //     "best image compressor",
+  //     "reduce image file size"
+  //   ],
+  //   canonicalUrl: "https://www.snapimg.site/compressimages",
+  //   structuredData: {
+  //     "@context": "https://schema.org",
+  //     "@type": "WebPage",
+  //     name: "Compress Images Online - Free Image Compressor",
+  //     description: "Use SnapIMG to compress images online instantly without quality loss. Supports JPG, PNG, and WebP formats.",
+  //     url: "https://www.snapimg.site/compressimages",
+  //     keywords: "compress images online, image compressor, reduce image size, free image compression",
+  //     inLanguage: "en",
+  //     image: "https://www.snapimg.site/assets/compress-preview.jpg",
+  //     isPartOf: {
+  //       "@type": "WebSite",
+  //       name: "SnapIMG",
+  //       url: "https://www.snapimg.site"
+  //     },
+  //     mainEntity: {
+  //       "@type": "HowTo",
+  //       name: "How to Compress Images Online",
+  //       description: "Follow these steps to compress images online using SnapIMG.",
+  //       estimatedCost: "Free",
+  //       totalTime: "PT10S",
+  //       tool: {
+  //         "@type": "SoftwareApplication",
+  //         name: "SnapIMG",
+  //         operatingSystem: "Web",
+  //         applicationCategory: "MultimediaApplication",
+  //         offers: {
+  //           "@type": "Offer",
+  //           price: "0",
+  //           priceCurrency: "USD"
+  //         }
+  //       },
+  //       step: [
+  //         {
+  //           "@type": "HowToStep",
+  //           name: "Upload Your Image",
+  //           text: "Select or drag and drop JPG, PNG, or WebP files.",
+  //           image: "https://www.snapimg.site/assets/step1-upload.jpg"
+  //         },
+  //         {
+  //           "@type": "HowToStep",
+  //           name: "Compress Image",
+  //           text: "Click ‘Compress’ to reduce file size without quality loss.",
+  //           image: "https://www.snapimg.site/assets/step2-compress.jpg"
+  //         },
+  //         {
+  //           "@type": "HowToStep",
+  //           name: "Download Compressed Image",
+  //           text: "Download and save your optimized image instantly.",
+  //           image: "https://www.snapimg.site/assets/step3-download.jpg"
+  //         }
+  //       ]
+  //     }
+  //   },
+  //   openGraph: {
+  //     title: "Compress Images Online - Free & Fast Image Compressor | SnapIMG",
+  //     description: "Compress images online for free. Reduce JPG, PNG, or WebP file sizes instantly without losing quality. SnapIMG is the fastest online image compressor.",
+  //     url: "https://www.snapimg.site/compressimages",
+  //     type: "website",
+  //     locale: "en_US",
+  //     site_name: "SnapIMG",
+  //     images: [
+  //       {
+  //         url: "https://www.snapimg.site/assets/compress-preview.jpg",
+  //         width: 1200,
+  //         height: 630,
+  //         alt: "Compress Images Online - SnapIMG"
+  //       }
+  //     ]
+  //   },
+  //   twitterCard: {
+  //     card: "summary_large_image",
+  //     title: "Compress Images Online - Free & Fast Image Compressor | SnapIMG",
+  //     description: "Reduce image file sizes with SnapIMG’s free image compressor. Supports JPG, PNG, WebP formats. No quality loss!",
+  //     image: "https://www.snapimg.site/assets/compress-preview.jpg",
+  //     site: "@SnapIMG"
+  //   }
+  // };
   
 
   // Handle file input change
@@ -309,7 +309,7 @@ function CompressImages() {
 
   return (
     <div>
-      <Seo {...seoConfig} />
+      {/* <Seo {...seoConfig} /> */}
       <main className="tool-container">
         <div className="tool-header">
           <h1>Compress Images</h1>

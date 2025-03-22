@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
-import Seo from '../components/Seo';
+// import Seo from '../components/Seo';
 
 function ConvertToPdf() {
   const [files, setFiles] = useState([]);
@@ -25,53 +25,53 @@ function ConvertToPdf() {
   }, []);
 
 
-  const seoConfig = {
-    title: "Convert to PDF - Free Online Image to PDF Converter | SnapIMG",
-    description:
-      "Convert images to PDF format online for free. Drag and drop your JPG, PNG, or WebP files and download high-quality PDF files instantly.",
-    canonicalUrl: "https://www.snapimg.site/convertpdf",
-    keywords: [
-      "convert to PDF",
-      "image to PDF converter",
-      "free PDF converter",
-      "online PDF converter",
-      "convert JPG to PDF",
-      "convert PNG to PDF",
-      "convert WebP to PDF",
-      "best PDF converter online",
-      "high-quality PDF conversion",
-      "PDF image converter",
-      "fast PDF converter tool",
-      "bulk PDF conversion online",
-      "instant PDF converter",
-      "JPG to PDF converter free",
-      "PNG to PDF format converter",
-      "SnapIMG PDF conversion",
-      "best free image to PDF converter",
-      "merge images into PDF",
-      "convert multiple images to PDF"
-    ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: "How to Convert Images to PDF Format",
-      description: "Learn how to convert images to PDF format using SnapIMG.",
-      step: [
-        {
-          "@type": "HowToStep",
-          text: "Upload your image in JPG, PNG, or WebP format.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Click 'Convert to PDF' to process the image.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Download the converted PDF file.",
-        },
-      ],
-    },
-  };
+  // const seoConfig = {
+  //   title: "Convert to PDF - Free Online Image to PDF Converter | SnapIMG",
+  //   description:
+  //     "Convert images to PDF format online for free. Drag and drop your JPG, PNG, or WebP files and download high-quality PDF files instantly.",
+  //   canonicalUrl: "https://www.snapimg.site/convertpdf",
+  //   keywords: [
+  //     "convert to PDF",
+  //     "image to PDF converter",
+  //     "free PDF converter",
+  //     "online PDF converter",
+  //     "convert JPG to PDF",
+  //     "convert PNG to PDF",
+  //     "convert WebP to PDF",
+  //     "best PDF converter online",
+  //     "high-quality PDF conversion",
+  //     "PDF image converter",
+  //     "fast PDF converter tool",
+  //     "bulk PDF conversion online",
+  //     "instant PDF converter",
+  //     "JPG to PDF converter free",
+  //     "PNG to PDF format converter",
+  //     "SnapIMG PDF conversion",
+  //     "best free image to PDF converter",
+  //     "merge images into PDF",
+  //     "convert multiple images to PDF"
+  //   ],
+  //   structuredData: {
+  //     "@context": "https://schema.org",
+  //     "@type": "HowTo",
+  //     name: "How to Convert Images to PDF Format",
+  //     description: "Learn how to convert images to PDF format using SnapIMG.",
+  //     step: [
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Upload your image in JPG, PNG, or WebP format.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Click 'Convert to PDF' to process the image.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Download the converted PDF file.",
+  //       },
+  //     ],
+  //   },
+  // };
 
 
   // Helper function to format file size
@@ -282,7 +282,7 @@ function ConvertToPdf() {
 
   return (
     <div>
-      <Seo {...seoConfig} />
+      {/* <Seo {...seoConfig} /> */}
       <div className="tool-container">
         <div className="tool-header">
           <h1>Convert to PDF</h1>

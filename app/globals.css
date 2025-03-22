@@ -731,6 +731,8 @@ p {
   h3 {
     font-size: 18px;
     font-weight: 600;
+    align-items: center;
+    text-align: center;
   }
 
   p {
@@ -1011,7 +1013,45 @@ footer {
   }
 }
 
+
+@media (max-width: 900px) {
+  :root {
+    --width: 90% !important;
+    --readable-width: 100%;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .how-to-use-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctj {
+    display: none;
+  }
+}
+
 @media (max-width: 674px) {
+  :root {
+    --width: 90% !important;
+    --readable-width: 100%;
+  }
+
+  .main-container-div {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .right-options-container {
+    width: 100%;
+  }
+
   h1 {
     font-size: 23px;
     text-align: left;

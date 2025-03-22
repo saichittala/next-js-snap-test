@@ -13,52 +13,52 @@ function ConvertToWebp() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
 
-  const seoConfig = {
-    title: "Convert to WebP - Free Online Image to WebP Converter | SnapIMG",
-    description:
-      "Convert images to WebP format online for free. Drag and drop your JPG, PNG, or GIF files and download high-quality WebP images instantly.",
-    canonicalUrl: "https://www.snapimg.site/convertwebp",
-    keywords: [
-      "convert to WebP",
-      "image to WebP converter",
-      "free WebP converter",
-      "online WebP converter",
-      "convert JPG to WebP",
-      "convert PNG to WebP",
-      "convert GIF to WebP",
-      "best WebP converter online",
-      "high-quality WebP conversion",
-      "WebP image converter",
-      "fast WebP converter tool",
-      "bulk WebP conversion online",
-      "instant WebP converter",
-      "JPG to WebP converter free",
-      "PNG to WebP format converter",
-      "SnapIMG WebP conversion",
-      "lossless WebP conversion",
-      "best free image to WebP converter"
-    ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: "How to Convert Images to WebP Format",
-      description: "Learn how to convert images to WebP format using SnapIMG.",
-      step: [
-        {
-          "@type": "HowToStep",
-          text: "Upload your image in JPG, PNG, or GIF format.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Click 'Convert to WebP' to process the image.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Download the converted WebP image.",
-        },
-      ],
-    },
-  };
+  // const seoConfig = {
+  //   title: "Convert to WebP - Free Online Image to WebP Converter | SnapIMG",
+  //   description:
+  //     "Convert images to WebP format online for free. Drag and drop your JPG, PNG, or GIF files and download high-quality WebP images instantly.",
+  //   canonicalUrl: "https://www.snapimg.site/convertwebp",
+  //   keywords: [
+  //     "convert to WebP",
+  //     "image to WebP converter",
+  //     "free WebP converter",
+  //     "online WebP converter",
+  //     "convert JPG to WebP",
+  //     "convert PNG to WebP",
+  //     "convert GIF to WebP",
+  //     "best WebP converter online",
+  //     "high-quality WebP conversion",
+  //     "WebP image converter",
+  //     "fast WebP converter tool",
+  //     "bulk WebP conversion online",
+  //     "instant WebP converter",
+  //     "JPG to WebP converter free",
+  //     "PNG to WebP format converter",
+  //     "SnapIMG WebP conversion",
+  //     "lossless WebP conversion",
+  //     "best free image to WebP converter"
+  //   ],
+  //   structuredData: {
+  //     "@context": "https://schema.org",
+  //     "@type": "HowTo",
+  //     name: "How to Convert Images to WebP Format",
+  //     description: "Learn how to convert images to WebP format using SnapIMG.",
+  //     step: [
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Upload your image in JPG, PNG, or GIF format.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Click 'Convert to WebP' to process the image.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Download the converted WebP image.",
+  //       },
+  //     ],
+  //   },
+  // };
   
 
   // Handle file input change
@@ -254,7 +254,7 @@ function ConvertToWebp() {
 
   return (
     <div>
-      <Seo {...seoConfig} />
+      {/* <Seo {...seoConfig} /> */}
       <div className="tool-container">
         <div className="tool-header">
           <h1>Convert to WebP</h1> {/* Update title */}

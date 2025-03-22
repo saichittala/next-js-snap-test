@@ -12,52 +12,52 @@ function Convertjpg() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
 
-  const seoConfig = {
-    title: "Convert to JPG - Free Online Image Converter | SnapIMG",
-    description:
-      "Convert images to JPG format online for free. Drag and drop your PNG, WEBP, or GIF files and download high-quality JPG images instantly.",
-    canonicalUrl: "https://www.snapimg.site/convertjpg",
-    keywords: [
-      "convert to JPG",
-      "JPG converter",
-      "online JPG converter",
-      "free JPG converter",
-      "convert PNG to JPG",
-      "convert WEBP to JPG",
-      "convert GIF to JPG",
-      "best JPG converter online",
-      "high-quality JPG converter",
-      "JPG file converter",
-      "image to JPG converter",
-      "convert images to JPG format",
-      "snapimg JPG conversion",
-      "fast JPG converter tool",
-      "bulk JPG conversion online",
-      "instant JPG converter",
-      "JPG format converter free",
-      "best free image converter"
-    ],
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: "How to Convert Images to JPG Format",
-      description: "Learn how to convert images to JPG format using SnapIMG.",
-      step: [
-        {
-          "@type": "HowToStep",
-          text: "Upload your image in PNG, WEBP, or GIF format.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Click 'Convert to JPG' to process the image.",
-        },
-        {
-          "@type": "HowToStep",
-          text: "Download the converted JPG image.",
-        },
-      ],
-    },
-  };
+  // const seoConfig = {
+  //   title: "Convert to JPG - Free Online Image Converter | SnapIMG",
+  //   description:
+  //     "Convert images to JPG format online for free. Drag and drop your PNG, WEBP, or GIF files and download high-quality JPG images instantly.",
+  //   canonicalUrl: "https://www.snapimg.site/convertjpg",
+  //   keywords: [
+  //     "convert to JPG",
+  //     "JPG converter",
+  //     "online JPG converter",
+  //     "free JPG converter",
+  //     "convert PNG to JPG",
+  //     "convert WEBP to JPG",
+  //     "convert GIF to JPG",
+  //     "best JPG converter online",
+  //     "high-quality JPG converter",
+  //     "JPG file converter",
+  //     "image to JPG converter",
+  //     "convert images to JPG format",
+  //     "snapimg JPG conversion",
+  //     "fast JPG converter tool",
+  //     "bulk JPG conversion online",
+  //     "instant JPG converter",
+  //     "JPG format converter free",
+  //     "best free image converter"
+  //   ],
+  //   structuredData: {
+  //     "@context": "https://schema.org",
+  //     "@type": "HowTo",
+  //     name: "How to Convert Images to JPG Format",
+  //     description: "Learn how to convert images to JPG format using SnapIMG.",
+  //     step: [
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Upload your image in PNG, WEBP, or GIF format.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Click 'Convert to JPG' to process the image.",
+  //       },
+  //       {
+  //         "@type": "HowToStep",
+  //         text: "Download the converted JPG image.",
+  //       },
+  //     ],
+  //   },
+  // };
   
 
   // Handle file input change
@@ -255,7 +255,6 @@ function Convertjpg() {
 
   return (
     <div>
-      <Seo {...seoConfig} />
       <div className="tool-container">
         <div className="tool-header">
           <h1>Convert to JPG</h1>
