@@ -4,7 +4,6 @@ import React, { useState, useCallback, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import UPNG from 'upng-js';
-import Seo from "../components/Seo";
 
 
 function ConvertToPng() {
