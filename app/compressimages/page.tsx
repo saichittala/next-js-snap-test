@@ -314,9 +314,9 @@ function CompressImages() {
           <h1>Compress Images</h1>
           <p className="heading-desc">Drag and drop your images below to compress</p>
         </div>
-        <div className='main-container-div'>
+        <div className='main-container-div' id="drop-zone">
           <div className='middle-container'>
-            <div className="upload-section" id="drop-zone">
+            <div className="upload-section" >
               <input
                 type="file"
                 id="file-input"

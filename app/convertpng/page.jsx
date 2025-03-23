@@ -260,9 +260,9 @@ function ConvertToPng() {
           </p>
         </div>
 
-        <div className='main-container-div'>
+        <div className='main-container-div' id="drop-zone">
           <div className='middle-container'>
-            <div className="upload-section" id="drop-zone">
+            <div className="upload-section" >
               <input
                 type="file"
                 id="file-input"

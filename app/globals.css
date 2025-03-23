@@ -53,6 +53,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: linear-gradient(116deg, #F2F7FD -26.26%, #FAF6FF 27.76%, #F2F7FD 58.58%, #FFF 93.31%, #FAF6FF 153.81%);
+  /* background: #fff !important; */
 
 }
 
@@ -985,6 +986,9 @@ footer {
   .ctw {
     display: none;
   }
+  .image-preview-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
 
 
@@ -1011,6 +1015,9 @@ footer {
   .ctj {
     display: none;
   }
+  .image-preview-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 
@@ -1034,6 +1041,9 @@ footer {
 
   .ctj {
     display: none;
+  }
+  .image-preview-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -1130,6 +1140,9 @@ footer {
 
   .footer-link {
     font-size: 18px;
+  }
+  .image-preview-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

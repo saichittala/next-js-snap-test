@@ -10,6 +10,7 @@ function Convertjpg() {
   const [progress, setProgress] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
+  
 
   // const seoConfig = {
   //   title: "Convert to JPG - Free Online Image Converter | SnapIMG",
@@ -253,7 +254,7 @@ function Convertjpg() {
   };
 
   return (
-    <div>
+    <div >
       <div className="tool-container">
         <div className="tool-header">
           <h1>Convert to JPG</h1>
@@ -261,9 +262,9 @@ function Convertjpg() {
             Drag and drop your images below to convert them to JPG format
           </p>
         </div>
-        <div className='main-container-div'>
+        <div className='main-container-div' id="drop-zone">
           <div className='middle-container'>
-            <div className="upload-section" id="drop-zone">
+            <div className="upload-section" >
               <input
                 type="file"
                 id="file-input"
