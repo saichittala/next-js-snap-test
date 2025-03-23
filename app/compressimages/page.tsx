@@ -361,7 +361,7 @@ function CompressImages() {
                         className="delete-btn"
                         onClick={() => deleteFile(index)}
                       >
-                        <img src="/img/delete.svg" alt="Delete" width={20} height={20} />
+                        <img src="/img/delete-btn.svg" alt="Delete" width={20} height={20} />
                       </button>
                     </div>
                   ))}

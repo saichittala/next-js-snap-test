@@ -1,8 +1,11 @@
 {
-  "/404/page": "app/404/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/compressimages/page": "app/compressimages/page.js",
   "/convertjpg/page": "app/convertjpg/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/convertpdf/page": "app/convertpdf/page.js",
+  "/convertwebp/page": "app/convertwebp/page.js",
+  "/convertpng/page": "app/convertpng/page.js",
+  "/page": "app/page.js",
+  "/404/page": "app/404/page.js"
 }

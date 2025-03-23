@@ -305,7 +305,7 @@ function Convertjpg() {
                         className="delete-btn"
                         onClick={() => deleteFile(index)}
                       >
-                        <img src="/img/delete.svg" alt="Delete" />
+                        <img src="/img/delete-btn.svg" alt="Delete" />
                       </button>
                     </div>
                   ))}
