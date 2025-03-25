@@ -31,14 +31,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8420729734991072"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body className="global-container">
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8420729734991072"
-        crossOrigin="anonymous"
-      ></script>
+
     </html>
   );
 }

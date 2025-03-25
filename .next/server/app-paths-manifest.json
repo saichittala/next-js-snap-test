@@ -1,1 +1,11 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/compressimages/page": "app/compressimages/page.js",
+  "/convertpng/page": "app/convertpng/page.js",
+  "/convertwebp/page": "app/convertwebp/page.js",
+  "/404/page": "app/404/page.js",
+  "/convertpdf/page": "app/convertpdf/page.js",
+  "/page": "app/page.js",
+  "/convertjpg/page": "app/convertjpg/page.js"
+}
