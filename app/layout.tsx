@@ -34,6 +34,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="global-container">
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8420729734991072"
+        crossOrigin="anonymous"
+      ></script>
     </html>
   );
 }
