@@ -54,11 +54,11 @@ const Home = () => {
       <main>
         {/* Hero Section */}
         <section>
-          <div>
-            <h1>Free Online Image Compression & Conversion Tool</h1>
+          <div style={{ width: "400px", margin: "auto"}}>
+            <h1>Your all-in-one file optimization tool — fast, simple, powerful.</h1>
             <p className="heading-desc">
-              Compress images and convert JPG, PNG, WebP files easily. No downloads, no quality loss!
-            </p>
+              Compress and convert anything in seconds.
+            </p>  
           </div>
           <OptionsGrid />
         </section>
