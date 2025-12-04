@@ -1,4 +1,4 @@
-// File: E:\SnapIMG\next-js-snap-test\app\404\page.jsx
+// File: /Users/ghapps/Desktop/Home/next-js-snap-test/app/404/page.jsx
 import * as entry from '../../../../app/404/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

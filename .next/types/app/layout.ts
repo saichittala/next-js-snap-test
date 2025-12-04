@@ -1,4 +1,4 @@
-// File: E:\SnapIMG\next-js-snap-test\app\layout.tsx
+// File: /Users/ghapps/Desktop/Home/next-js-snap-test/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

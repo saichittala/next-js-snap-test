@@ -1,4 +1,4 @@
-// File: E:\SnapIMG\next-js-snap-test\app\compressimages\page.tsx
+// File: /Users/ghapps/Desktop/Home/next-js-snap-test/app/compressimages/page.tsx
 import * as entry from '../../../../app/compressimages/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
