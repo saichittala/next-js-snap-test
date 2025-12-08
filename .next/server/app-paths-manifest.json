@@ -1,3 +1,4 @@
 {
+  "/convertjpg/page": "app/convertjpg/page.js",
   "/page": "app/page.js"
 }
